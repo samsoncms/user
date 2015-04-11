@@ -1,4 +1,4 @@
-<div id="list" class="table2 material-list">
+<div id="list" class="table2 user-list">
     <div class="table2-header-row table2-row">
         <div class="table2-col table2-header-col id">#</div>
         <div class="table2-col table2-header-col fio"><?php t('ФИО')?></div>
