@@ -1,5 +1,5 @@
 {
-    "name":"samsoncms/app_user",
+    "name":"samsoncms/user",
     "description":"SamsonCMS user application",
     "author":"Vitaly Iegorov <egorov@samsonos.com>",
     "require":{
