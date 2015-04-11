@@ -9,7 +9,7 @@
 namespace samsoncms\app\user;
 
 
-class Collection extends \samsoncms\
+class Collection
 {
 
 }
