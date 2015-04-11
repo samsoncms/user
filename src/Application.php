@@ -29,7 +29,7 @@ class Application extends \samson\cms\App
         $table = new Table($query);
 
         // Установим представление
-        m()->view('main/index')->title(t('Пользователи системы', true))
+        m()->view('index')->title(t('Пользователи системы', true))
             ->all_materials(true)
             // Установим шаблон таблицы пользователей
             ->user_table($table->render());

@@ -1,0 +1,3 @@
+<div class="table2-empty">
+    <?php t('В системе нет ни одного пользователя')?>, <a href="<?php module_url('form', 0, 0)?>"><?php t('создать')?>
+</div>
