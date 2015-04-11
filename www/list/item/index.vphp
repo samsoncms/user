@@ -1,14 +1,14 @@
-<div class="table2-row <?php isnval('item_Draft', 0, 'draft')?>">
-    <div class="table2-col id"><span class="cell-inner"><?php v('user_id');?></span></div>
+<div class="table2-row">
+    <div class="table2-col id"><span class="cell-inner"><?php v('item_id');?></span></div>
     <div class="table2-col fio limited">
         <a href="<?php module_url('form', 'item_id')?>"
-           title="<?php t('Редактировать пользователя')?>: <?php v('user_FName')?> <?php v('user_FName')?>">
-            <?php iv('user_FName')?> <?php iv('user_SName')?> <?php iv('user_TName')?>
+           title="<?php t('Редактировать пользователя')?>: <?php v('item_FName')?> <?php v('item_FName')?>">
+            <?php iv('item_FName')?> <?php iv('item_SName')?> <?php iv('item_TName')?>
         </a>
     </div>
     <div class="table2-col email limited">
-        <a class="cell-inner" href="mailto:<?php v('user_Email')?>">
-            <?php v('user_Email')?>
+        <a class="cell-inner" href="mailto:<?php v('item_Email')?>">
+            <?php v('item_Email')?>
         </a>
     </div>
     <div class="table2-col modyfied">
@@ -17,7 +17,7 @@
     </div>
     <div class="table2-col control">
         <a class="icon2 icon_16x16 icon-edit"
-           href="<?php module_url('form', 'user_id')?>" title="<?php t('Редактировать пользователя')?>"></a>
+           href="<?php module_url('form', 'item_id')?>" title="<?php t('Редактировать пользователя')?>"></a>
         <?php if (isval('item_system', 0)) : ?>
             <a class="icon2 icon_16x16 icon-delete delete"
                href="<?php module_url('remove', 'item_id', 'list')?>"

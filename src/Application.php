@@ -13,26 +13,30 @@ class Application extends \samson\cms\App
     /** @var string Application icon */
     public $icon = 'user';
 
-
     /** @var string Module identifier */
     protected $id = 'user';
 
-    /**
-     * Universal controller
-     */
-    public function __HANDLER()
+    /** Universal controller action */
+    public function __handler()
     {
-        // Create query to get users
-        $query = dbQuery('user')->Active(1)->order_by('UserID');
+        // Prepare view
+        m()->view('index')
+            ->title(t('Пользователи системы', true))
+            ->set($this->__async_table());
+    }
 
-        // Create generic table for users
-        $table = new Table($query);
+    /**
+     * Method for rendering table
+     * @return array - AJAX Response
+     */
+    public function __async_table()
+    {
+        $users = new Collection($this, dbQuery('user'));
 
-        // Установим представление
-        m()->view('index')->title(t('Пользователи системы', true))
-            ->all_materials(true)
-            // Установим шаблон таблицы пользователей
-            ->user_table($table->render());
+        return array_merge(
+            array('status' => 1),
+            $users->toView('list_')
+        );
     }
 
     /** Save user data */
@@ -60,7 +64,7 @@ class Application extends \samson\cms\App
             $db_user->save();
 
             // Refresh session user object
-            $auth_user_id = unserialize($_SESSION[m('socialemail')->identifier()]);
+            $auth_id = unserialize($_SESSION[m('socialemail')->identifier()]);
             if ($auth_user_id['UserID'] == $db_user['UserID']) {
                 m('socialemail')->update($db_user);
             }
@@ -93,21 +97,6 @@ class Application extends \samson\cms\App
             'status'=>1,
             'html'=>$html
         );
-    }
-
-    /**
-     * Method for rendering table
-     * @return array - AJAX Response
-     */
-    public function __async_table()
-    {
-        // Create query to get users
-        $query = dbQuery('user')->Active(1)->order_by('UserID');
-
-        // Create generic table for users
-        $table = new Table($query);
-
-        return array ('status'=>1, 'table'=>$table->render());
     }
 
     /**

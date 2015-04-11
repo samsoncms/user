@@ -7,19 +7,33 @@
  */
 namespace samsoncms\app\user;
 
+use samsonos\cms\collection\Generic;
+use samsonframework\core\RenderInterface;
+use samsonframework\orm\QueryInterface;
 
-class Collection extends \samsonos\cms\collection\Generic
+/**
+ * Collection of SamsonCMS users
+ * @package samsoncms\app\user
+ */
+class Collection extends Generic
 {
-    public function __construct($query)
+    public $indexView = 'www/list/index';
+    public $itemView = 'www/list/item/index';
+    public $emptyView = 'www/list/item/empty';
+    public $entityName = 'samson\activerecord\user';
+
+    public function __construct(RenderInterface $renderer, QueryInterface $query)
     {
+        parent::__construct($renderer, $query);
+
         // Store query for table "user"
-        $this->query = $query->className('user');
+        $this->query = $query->className($this->entityName);
 
         $this->fill();
-    }
+     }
 
     public function fill()
     {
-        $this->collection = $this->query->exec();
+        $this->collection = $this->query->order_by('UserID')->exec();
     }
 }
