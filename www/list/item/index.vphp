@@ -12,7 +12,7 @@
         </a>
     </div>
     <div class="table2-col modyfied">
-        <?php v('item_Created'); ?><br>
+        <?php v('item_Created')?> /
         <?php v('item_Modyfied')?>
     </div>
     <div class="table2-col control">
