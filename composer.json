@@ -1,16 +1,17 @@
 {
-    "name":"samsoncms/user",
-    "description":"SamsonCMS user application",
-    "author":"Vitaly Iegorov <egorov@samsonos.com>",
-    "require":{
-      "samsoncms/template":"*"
-    },
-    "license":"Open Software License (OSL) v 3.0",
-    "homepage":"http://samsonos.com/",
-    "autoload": {
-        "classmap": ["src/"],
-        "psr-4": {
-            "samsoncms\\app\\user\\": "src/"
-        }
+  "name": "samsoncms/user",
+  "description": "SamsonCMS user application",
+  "author": "Vitaly Iegorov <egorov@samsonos.com>",
+  "minimum-stability": "dev",
+  "require": {
+    "samsoncms/template": "*"
+  },
+  "license": "Open Software License (OSL) v 3.0",
+  "homepage": "http://samsonos.com/",
+  "autoload": {
+    "classmap": ["src/"],
+    "psr-4": {
+      "samsoncms\\app\\user\\": "src/"
     }
+  }
 }
