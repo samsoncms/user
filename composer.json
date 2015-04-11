@@ -1,9 +1,9 @@
 {
-    "name":"samsonos/cms_app_user",
+    "name":"samsoncms/app_user",
     "description":"SamsonCMS user application",
     "author":"Vitaly Iegorov <egorov@samsonos.com>",
     "require":{
-        "samsonos/cms_app":"*"
+      "samsoncms/template":"*"
     },
     "license":"Open Software License (OSL) v 3.0",
     "homepage":"http://samsonos.com/",
