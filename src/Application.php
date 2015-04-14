@@ -26,8 +26,8 @@ class Application extends \samson\cms\App
     }
 
     /**
-     * Method for rendering table
-     * @return array - AJAX Response
+     * Render users list
+     * @return array Asynchronous response array
      */
     public function __async_table()
     {
@@ -36,6 +36,22 @@ class Application extends \samson\cms\App
         return array_merge(
             array('status' => 1),
             $users->toView('list_')
+        );
+    }
+
+    /**
+     * Render users form
+     * @return array Asynchronous response array
+     */
+    public function __async_form($userID = null)
+    {
+        return array(
+            'status'    =>1,
+            'html'  => $this->view('form/form')
+                ->user(dbQuery('user')
+                    ->UserID($userID)
+                    ->first())
+                ->output()
         );
     }
 
@@ -70,33 +86,6 @@ class Application extends \samson\cms\App
             }
         }
         return array ('status' => 1);
-    }
-
-    public function __async_form($userID = null)
-    {
-        /** @var \samson\activerecord\user $data */
-        $user = null;
-
-        if (isset($userID)) {
-            if (dbQuery('user')->UserID($userID)->first($user)) {
-                // Render form
-                $html = m()->view('form/form')
-                    ->user($user)
-                    ->output();
-            } else {
-                $html = m()->view('form/form')
-                    ->output();
-            }
-        } else {
-            $html = m()->view('form/form')
-                ->output();
-        }
-
-
-        return array(
-            'status'=>1,
-            'html'=>$html
-        );
     }
 
     /**

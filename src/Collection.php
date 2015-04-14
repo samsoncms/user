@@ -30,7 +30,7 @@ class Collection extends Generic
         $this->query = $query->className($this->entityName);
 
         $this->fill();
-     }
+    }
 
     public function fill()
     {
