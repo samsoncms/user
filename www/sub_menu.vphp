@@ -3,7 +3,7 @@
     <?php t('Список')?>
 	</a>
 </li><li>
-	<a id="createNewUser" class="sub_menu_a<?php isv('form', 'active')?>" href="<?php module_url('form')?>">
+	<a class="sub_menu_a template-list-btn-form <?php isv('form', 'active')?>" href="<?php module_url('form')?>">
 		<?php t('Новый')?>
 	</a>
 </li>

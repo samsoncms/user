@@ -3,13 +3,15 @@
  */
 
 // Init when in user module
-s('#user').pageInit(function(parent){
+s('#user').pageInit(function(parent) {
+
+    s.trace('User init');
 
     // Creater generic loader instance
     var loader = new Loader();
 
     // Content container
-    var container = s('#container', parent);
+    var container = s('#template-container', parent);
 
     /**
      * Initialize user form
@@ -18,13 +20,14 @@ s('#user').pageInit(function(parent){
     var initForm = function(clickable) {
         clickable.tinyboxAjax({
             html: 'html',
+            oneclickclose:true,
             renderedHandler: function (response, tb) {
-                s(".form2").ajaxSubmit(function (response) {
+                s(".form2").ajaxSubmit(function(response) {
                     loader.hide();
                     tb.close();
                     initList(response);
-                }, function () {
-                    loader.show(true);
+                }, function (form) {
+                    loader.show();
                     return true;
                 });
             },
@@ -51,7 +54,7 @@ s('#user').pageInit(function(parent){
         }
 
         // Bind form list elements
-        initForm(s('.edit', container));
+        initForm(s('.template-list-btn-edit', container));
 
         // Bind delete action
         s('.delete', container).ajaxClick(initList, function(clicked) {
@@ -60,8 +63,8 @@ s('#user').pageInit(function(parent){
     };
 
     // Bind form from sub-menu button
-    //initForm(s('#createNewUser'));
+    initForm(s('.template-list-btn-form'));
 
     // Init interface
-    //initList();
+    initList();
 });

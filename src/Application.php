@@ -80,12 +80,14 @@ class Application extends App
             $db_user->Active		= 1;
             $db_user->save();
 
+            // TODO: This has to be changed to Events
             // Refresh session user object
-            $auth_id = unserialize($_SESSION[m('socialemail')->identifier()]);
+            $auth_user_id = unserialize($_SESSION[m('socialemail')->identifier()]);
             if ($auth_user_id['UserID'] == $db_user['UserID']) {
                 m('socialemail')->update($db_user);
             }
         }
+
         return array ('status' => 1);
     }
 
