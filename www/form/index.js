@@ -5,8 +5,6 @@
 // Init when in user module
 s('#user').pageInit(function(parent) {
 
-    s.trace('User init');
-
     // Creater generic loader instance
     var loader = new Loader();
 
