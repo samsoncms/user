@@ -6,7 +6,7 @@
 s('#user').pageInit(function(parent){
 
     // Creater generic loader instance
-    var loader = new Loader(s('body'));
+    var loader = new Loader();
 
     // Content container
     var container = s('#container', parent);
@@ -21,7 +21,7 @@ s('#user').pageInit(function(parent){
             renderedHandler: function (response, tb) {
                 s(".form2").ajaxSubmit(function (response) {
                     loader.hide();
-                    tb._close();
+                    tb.close();
                     initList(response);
                 }, function () {
                     loader.show(true);
