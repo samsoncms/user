@@ -1,7 +1,7 @@
 <div class="table2-row">
     <div class="table2-col id"><span class="cell-inner"><?php v('item_id');?></span></div>
     <div class="table2-col fio limited">
-        <a href="<?php module_url('form', 'item_id')?>"
+        <a class="edit" href="<?php module_url('form', 'item_id')?>"
            title="<?php t('Редактировать пользователя')?>: <?php v('item_FName')?> <?php v('item_FName')?>">
             <?php iv('item_FName')?> <?php iv('item_SName')?> <?php iv('item_TName')?>
         </a>
@@ -16,12 +16,12 @@
         <?php v('item_Modyfied')?>
     </div>
     <div class="table2-col control">
-        <a class="icon2 icon_16x16 icon-edit"
+        <a class="icon2 icon_16x16 icon-edit edit"
            href="<?php module_url('form', 'item_id')?>" title="<?php t('Редактировать пользователя')?>"></a>
         <?php if (isval('item_system', 0)) : ?>
             <a class="icon2 icon_16x16 icon-delete delete"
                href="<?php module_url('remove', 'item_id', 'list')?>"
-               title="<?php t('Удалить пользователя')?>"></a>
+               title="<?php t('Удалить пользователя')?>?"></a>
         <?php endif; ?>
     </div>
 </div>

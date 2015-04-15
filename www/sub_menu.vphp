@@ -4,6 +4,6 @@
 	</a>
 </li><li>
 	<a id="createNewUser" class="sub_menu_a<?php isv('form', 'active')?>" href="<?php module_url('form')?>">
-		<span class="icon icon-add-user">.</span><?php t('Новый')?>
+		<?php t('Новый')?>
 	</a>
 </li>
