@@ -36,8 +36,6 @@ class Collection extends \samsoncms\Collection
             new ControlField('UserID', t('Управление', true)),
         );
 
-        trace($this->fields, true);
-
         // Call parent
         parent::__construct($renderer, $query, $pager);
 
