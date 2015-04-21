@@ -1,7 +1,7 @@
 <div class="table2-col <?php iv('class') ?>">
     <span>
-        <?php iv('item_SName')?>
-        <?php iv('item_FName')?>
-        <?php iv('item_TName')?>
+        <?php iv('item_s_name')?>
+        <?php iv('item_f_name')?>
+        <?php iv('item_t_name')?>
     </span>
 </div>
