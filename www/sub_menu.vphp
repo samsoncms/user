@@ -1,9 +1,9 @@
 <li>
-	<a class="<?php isval(url()->module, 'user', 'active')?>" href="<?php module_url()?>">
+	<a class="<?php print(url()->module == 'user' ? 'active' : '')?>" href="<?php module_url()?>">
     <?php t('Список')?>
 	</a>
 </li><li>
-	<a class="template-list-btn-form <?php isval(url()->method, 'form', 'active')?>" href="<?php module_url('edit2')?>">
+	<a class="template-list-btn-form <?php print(url()->method == 'edit2' ? 'active' : '')?>" href="<?php module_url('edit2')?>">
 		<?php t('Новый')?>
 	</a>
 </li>
