@@ -19,6 +19,9 @@ class ControlField extends \samsoncms\CollectionField
     /** @var string Path to field view file */
     protected $view = 'www/controlfield';
 
+    /** @var string CSS class */
+    public $css = 'control';
+
     /**
      * Render collection entity field
      * @param RenderInterface $renderer
@@ -31,7 +34,7 @@ class ControlField extends \samsoncms\CollectionField
         // Render input field view
         return $renderer
             ->view($this->view)
-            ->set('class', $this->name)
+            ->set('class', $this->css)
             ->set($object, 'item')
             ->output();
     }
