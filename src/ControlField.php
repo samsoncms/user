@@ -16,14 +16,17 @@ use samsonframework\orm\QueryInterface;
  */
 class ControlField extends \samsoncms\CollectionField
 {
+    /** @var string CSS class */
+    protected $css = 'control';
+
+    /** @var string Disable editing */
+    protected $editable = false;
+
     /** @var string Path to field view file */
     protected $view = 'www/controlfield';
 
-    /** @var string CSS class */
-    public $css = 'control';
-
     /**
-     * Render collection entity field
+     * Render collection entity field inner block
      * @param RenderInterface $renderer
      * @param QueryInterface $query
      * @param mixed $object Entity object instance
