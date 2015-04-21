@@ -9,21 +9,22 @@ namespace samsoncms\app\user;
 
 use samsonframework\core\RenderInterface;
 use samsonframework\orm\QueryInterface;
+use samsoncms\CollectionField;
 
 /**
  * Overided control field
  * @package samsoncms\app\user
  */
-class ControlField extends \samsoncms\CollectionField
+class ControlField extends CollectionField
 {
-    /** @var string CSS class */
-    protected $css = 'control';
-
-    /** @var string Disable editing */
-    protected $editable = false;
-
     /** @var string Path to field view file */
     protected $view = 'www/controlfield';
+
+    /**  Overload parent constructor and pass needed params there */
+    public function __construct()
+    {
+        parent::__construct('control', t('Управление', true), 0, 'control', false);
+    }
 
     /**
      * Render collection entity field inner block
