@@ -64,7 +64,7 @@ class Application extends \samsoncms\Application
             // Create or find user depending on UserID passed
             /** @var \samson\activerecord\user $db_user */
             $db_user = null;
-            if (!dbQuery('user')->cond('user_id', $_POST['user_id'])->Active(1)->first($db_user)) {
+            if (!dbQuery('user')->cond('user_id', $_POST['user_id'])->cond('active', 1)->first($db_user)) {
                 $db_user = new \samson\activerecord\user(false);
             }
             // Save user data from form
@@ -73,7 +73,7 @@ class Application extends \samsoncms\Application
             $db_user->s_name 	    = $_POST['s_name'];
             $db_user->t_name 	    = $_POST['t_name'];
             $db_user->email 	    = $_POST['email'];
-            $db_user->md5_password 	= md5($_POST['password']);
+            $db_user->md5_password 	= ($_POST['password'] != '') ? md5($_POST['password']) : $db_user->md5_password;
             $db_user->md5_email 	= md5($_POST['email']);
             $db_user->active		= 1;
             $db_user->save();
@@ -81,7 +81,7 @@ class Application extends \samsoncms\Application
             // TODO: This has to be changed to Events
             // Refresh session user object
             $auth_user_id = unserialize($_SESSION[m('socialemail')->identifier()]);
-            if ($auth_user_id['UserID'] == $db_user['user_id']) {
+            if ($auth_user_id['user_id'] == $db_user['user_id']) {
                 m('socialemail')->update($db_user);
             }
         }
