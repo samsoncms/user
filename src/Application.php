@@ -10,34 +10,17 @@ class Application extends \samsoncms\Application
     /** @var string Application name */
     public $name = 'Пользователи';
 
+    /** Application description */
+    public $description = 'Пользователи системы';
+
     /** @var string Application icon */
     public $icon = 'user';
 
     /** @var string Module identifier */
     protected $id = 'user';
 
-    /** Universal controller action */
-    public function __handler()
-    {
-        // Prepare view
-        m()->view('index')
-            ->title(t('Пользователи системы', true))
-            ->set($this->__async_table());
-    }
-
-    /**
-     * Render users list
-     * @return array Asynchronous response array
-     */
-    public function __async_table($page = 1)
-    {
-        $users = new Collection($this, dbQuery('user'), new \samson\pager\Pager($page, 10, 'user/table'));
-
-        return array_merge(
-            array('status' => 1),
-            $users->toView('table_')
-        );
-    }
+    /** @var string Module identifier */
+    protected $entity = 'user';
 
     /**
      * Render users form
