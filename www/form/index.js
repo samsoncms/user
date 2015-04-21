@@ -9,7 +9,7 @@ s('#user').pageInit(function(parent) {
     var loader = new Loader();
 
     // Content container
-    var container = s('#template-container', parent);
+    var container = s('#content', parent);
 
     /**
      * Initialize user form
@@ -21,12 +21,8 @@ s('#user').pageInit(function(parent) {
             oneclickclose:true,
             renderedHandler: function (response, tb) {
                 s(".form2").ajaxSubmit(function(response) {
-                    loader.hide();
                     tb.close();
                     initList(response);
-                }, function (form) {
-                    loader.show();
-                    return true;
                 });
             },
             beforeHandler: function () {
@@ -47,8 +43,8 @@ s('#user').pageInit(function(parent) {
     var initList = function(response)
     {
         // Render server response
-        if (response && response.list_html) {
-            container.html(response.list_html);
+        if (response && response.table_html) {
+            container.html(response.table_html);
         }
 
         // Bind form list elements
