@@ -1,0 +1,7 @@
+<div class="table2-col control">
+    <span>
+        <?php iv('item_SName')?>
+        <?php iv('item_FName')?>
+        <?php iv('item_TName')?>
+    </span>
+</div>
