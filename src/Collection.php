@@ -31,6 +31,9 @@ class Collection extends \samsoncms\Collection
         // Call parent
         parent::__construct($renderer, $query, $pager);
 
+        // Apply sorting by identifier
+        $this->sorter($this->entityPrimaryField, 'DESC');
+
         // Fill collection on creation
         $this->fill();
     }
