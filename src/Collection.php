@@ -17,10 +17,6 @@ use samsonframework\pager\PagerInterface;
  */
 class Collection extends \samsoncms\Collection
 {
-    public $indexView = 'www/list/index';
-    public $itemView = 'www/list/item/index';
-    public $emptyView = 'www/list/item/empty';
-
     /** @var string Entity primary field name */
     protected $entityPrimaryField = 'UserID';
 
