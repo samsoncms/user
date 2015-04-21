@@ -13,7 +13,7 @@
             <li><label><?php t('Фамилия')?>:</label><div class="input-text"><input name="s_name" id="s_name" value="<?php iv('user_s_name'); ?>"></div></li>
             <li><label><?php t('Отчество')?>:</label><div class="input-text"><input name="t_name" id="t_name" value="<?php iv('user_t_name'); ?>"></div></li>
             <li><label>Email:</label><div class="input-text"><input name="email" id="email" value="<?php iv('user_email'); ?>"></div></li>
-            <li><label>Password:</label><div class="input-text"><input type="password" name="Password" id="Password"></div></li>
+            <li><label>Password:</label><div class="input-text"><input type="password" name="password" id="password"></div></li>
 
             <?php if (!isv('user')) :?>
                 <li title="<?php t('Добавить нового пользователя')?>" class="right-align"><input type="submit" value="<?php t('Добавить')?>" class="user_save_button"></li>

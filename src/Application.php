@@ -64,19 +64,18 @@ class Application extends \samsoncms\Application
             // Create or find user depending on UserID passed
             /** @var \samson\activerecord\user $db_user */
             $db_user = null;
-            if (!dbQuery('user')->cond('user_id', $_POST['UserID'])->Active(1)->first($db_user)) {
+            if (!dbQuery('user')->cond('user_id', $_POST['user_id'])->Active(1)->first($db_user)) {
                 $db_user = new \samson\activerecord\user(false);
             }
             // Save user data from form
-            $db_user->Created 	    = ( $_POST['Created'] == 0 ) ? date('Y-m-d H:i:s') : $_POST['Created'];
-            $db_user->FName 	    = $_POST['FName'];
-            $db_user->SName 	    = $_POST['SName'];
-            $db_user->TName 	    = $_POST['TName'];
-            $db_user->Password  	= $_POST['Password'];
-            $db_user->Email 	    = $_POST['Email'];
-            $db_user->md5_password 	= md5($_POST['Password']);
-            $db_user->md5_email 	= md5($_POST['Email']);
-            $db_user->Active		= 1;
+            $db_user->created 	    = ( $_POST['created'] == 0 ) ? date('Y-m-d H:i:s') : $_POST['created'];
+            $db_user->f_name 	    = $_POST['f_name'];
+            $db_user->s_name 	    = $_POST['s_name'];
+            $db_user->t_name 	    = $_POST['t_name'];
+            $db_user->email 	    = $_POST['email'];
+            $db_user->md5_password 	= md5($_POST['password']);
+            $db_user->md5_email 	= md5($_POST['email']);
+            $db_user->active		= 1;
             $db_user->save();
 
             // TODO: This has to be changed to Events
