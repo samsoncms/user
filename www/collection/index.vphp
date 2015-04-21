@@ -1,6 +1,0 @@
-<div class="table2 user-list">
-    <div class="table2-row table2-header-row">
-        <?php iv('header')?>
-    </div>
-    <div class="table2-body"><?php v('items'); ?></div>
-</div>
