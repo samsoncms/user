@@ -32,7 +32,7 @@ class Application extends App
      */
     public function __async_table()
     {
-        $users = new Collection($this, dbQuery('user'));
+        $users = new Collection($this, dbQuery('user'), new \samson\pager\Pager(1,10));
 
         return array_merge(
             array('status' => 1),
