@@ -1,4 +1,4 @@
-<div class="table2-col control">
+<div class="table2-col <?php iv('class') ?>">
     <span>
         <?php iv('item_SName')?>
         <?php iv('item_FName')?>
