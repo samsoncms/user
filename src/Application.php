@@ -26,7 +26,7 @@ class Application extends \samsoncms\Application
      * Render users form
      * @return array Asynchronous response array
      */
-    public function __async_form($userID = null)
+    public function __async_edit2($userID = null)
     {
         return array(
             'status'    =>1,
@@ -78,7 +78,7 @@ class Application extends \samsoncms\Application
      *
      * @return array
      */
-    public function __async_delete($userID)
+    public function __async_remove2($identifier)
     {
         $user = null;
 
