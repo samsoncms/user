@@ -33,6 +33,7 @@ class Collection extends \samsoncms\Collection
             new CollectionField('SName', t('Фамилия', true), 0),
             new CollectionField('TName', t('Отчество', true), 0),
             new CollectionField('Modyfied', t('Последнее изменение', true), 3),
+            new ControlField('UserID', t('Управление', true)),
         );
 
         // Call parent
