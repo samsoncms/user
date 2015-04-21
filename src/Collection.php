@@ -10,6 +10,7 @@ namespace samsoncms\app\user;
 use samsonframework\core\RenderInterface;
 use samsonframework\orm\QueryInterface;
 use samsonframework\pager\PagerInterface;
+use samsoncms\CollectionField;
 
 /**
  * Collection of SamsonCMS users
@@ -17,9 +18,6 @@ use samsonframework\pager\PagerInterface;
  */
 class Collection extends \samsoncms\Collection
 {
-    /** @var string Entity primary field name */
-    protected $entityPrimaryField = 'UserID';
-
     /**
      * Overload default constructor
      * @param RenderInterface $renderer View renderer
@@ -28,6 +26,15 @@ class Collection extends \samsoncms\Collection
      */
     public function __construct(RenderInterface $renderer, QueryInterface $query, PagerInterface $pager)
     {
+        // Fill collection fields
+        $this->fields = array(
+            new CollectionField('UserID', '#', 0, 'id', false),
+            new CollectionField('FName', t('Имя', true), 0),
+            new CollectionField('SName', t('Фамилия', true), 0),
+            new CollectionField('TName', t('Отчество', true), 0),
+            new CollectionField('Modyfied', t('Последнее изменение', true), 3),
+        );
+
         // Call parent
         parent::__construct($renderer, $query, $pager);
 

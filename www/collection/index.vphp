@@ -1,10 +1,6 @@
-<div id="list" class="table2 user-list">
-    <div class="table2-header-row table2-row">
-        <div class="table2-col table2-header-col id">#</div>
-        <div class="table2-col table2-header-col fio"><?php t('ФИО')?></div>
-        <div class="table2-col table2-header-col email" title="<?php t('Email')?>"><?php t('Email')?></div>
-        <div class="table2-col table2-header-col modified"><?php t('Создан')?> / <?php t('Изменен')?></div>
-        <div class="table2-col table2-header-col control" title="<?php t('Управление')?>"></div>
+<div class="table2 user-list">
+    <div class="table2-row table2-header-row">
+        <?php iv('header')?>
     </div>
     <div class="table2-body"><?php v('items'); ?></div>
 </div>
