@@ -1,4 +1,4 @@
-<li class="<?php print(url()->module == 'user' ? 'active' : '')?>" >
+<li class="<?php print(url()->module == $id ? 'active' : '')?>" >
 	<a href="<?php module_url()?>">
     <?php t('Список')?>
 	</a>
