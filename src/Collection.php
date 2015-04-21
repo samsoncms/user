@@ -31,9 +31,6 @@ class Collection extends \samsoncms\Collection
         // Fill collection fields
         $this->fields = array(
             new Generic('UserID', '#', 0, 'id', false),
-            /*new Generic('FName', t('Имя', true), 0),
-            new Generic('SName', t('Фамилия', true), 0),
-            new Generic('TName', t('Отчество', true), 0),*/
             new FullName(),
             new Generic('Modyfied', t('Последнее изменение', true), 3),
             new Control(),
