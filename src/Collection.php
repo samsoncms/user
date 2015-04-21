@@ -20,7 +20,9 @@ class Collection extends \samsoncms\Collection
     public $indexView = 'www/list/index';
     public $itemView = 'www/list/item/index';
     public $emptyView = 'www/list/item/empty';
-    public $entityName = 'samson\activerecord\user';
+
+    /** @var string Entity primary field name */
+    protected $entityPrimaryField = 'UserID';
 
     /**
      * Overload default constructor
