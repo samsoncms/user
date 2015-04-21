@@ -82,7 +82,7 @@ class Application extends \samsoncms\Application
     {
         $user = null;
 
-        if (dbQuery('user')->cond('user_id', $userID)->first($user)) {
+        if (dbQuery('user')->cond('user_id', $identifier)->first($user)) {
             $user->delete();
         }
 

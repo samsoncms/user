@@ -1,5 +1,5 @@
 <div>
-    <form method="post" class="form2 user_form" action="<?php module_url('save', 'table') ?>" >
+    <form method="post" class="form2 user_form" action="<?php module_url('save', 'collection') ?>" >
         <div class="close-button" title="Закрыть форму"><input type="button" value="Х" class=""></div>
         <input type="hidden" name="user_id" id="UserID" value="<?php iv('user_id') ?>">
         <input type="hidden" name="created" id="created" value="<?php iv('user_created'); ?>">

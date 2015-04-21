@@ -1,9 +1,9 @@
 <li>
-	<a class="sub_menu_a <?php isv('list', 'active')?>" href="<?php module_url()?>">
+	<a class="<?php isval(url()->module, 'user', 'active')?>" href="<?php module_url()?>">
     <?php t('Список')?>
 	</a>
 </li><li>
-	<a class="sub_menu_a template-list-btn-form <?php isv('form', 'active')?>" href="<?php module_url('form')?>">
+	<a class="template-list-btn-form <?php isval(url()->method, 'form', 'active')?>" href="<?php module_url('edit2')?>">
 		<?php t('Новый')?>
 	</a>
 </li>
