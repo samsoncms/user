@@ -9,9 +9,9 @@
 	<!-- End of Header block -->
 
     <!-- Pager block -->
-    <?php if(isv('list_pager')):?>
+    <?php if(isv('table_pager')):?>
         <ul class="table-pager">
-            <?php v('list_pager')?>
+            <?php v('table_pager')?>
         </ul>
     <?php endif?>
     <!-- End of Pager block -->
@@ -21,6 +21,6 @@
 
 <!-- Content section -->
 <section id="content">
-	<?php v('list_html'); ?>
+	<?php v('table_html'); ?>
 </section>
 <!-- End of Content section -->		

@@ -29,13 +29,13 @@ class Application extends \samsoncms\Application
      * Render users list
      * @return array Asynchronous response array
      */
-    public function __async_table()
+    public function __async_table($page = 1)
     {
-        $users = new Collection($this, dbQuery('user'), new \samson\pager\Pager(1,10));
+        $users = new Collection($this, dbQuery('user'), new \samson\pager\Pager($page, 10, 'user/table'));
 
         return array_merge(
             array('status' => 1),
-            $users->toView('list_')
+            $users->toView('table_')
         );
     }
 
@@ -49,7 +49,7 @@ class Application extends \samsoncms\Application
             'status'    =>1,
             'html'  => $this->view('form/form')
                 ->user(dbQuery('user')
-                    ->UserID($userID)
+                    ->cond('user_id', $userID)
                     ->first())
                 ->output()
         );
@@ -64,7 +64,7 @@ class Application extends \samsoncms\Application
             // Create or find user depending on UserID passed
             /** @var \samson\activerecord\user $db_user */
             $db_user = null;
-            if (!dbQuery('user')->UserID($_POST['UserID'])->Active(1)->first($db_user)) {
+            if (!dbQuery('user')->cond('user_id', $_POST['UserID'])->Active(1)->first($db_user)) {
                 $db_user = new \samson\activerecord\user(false);
             }
             // Save user data from form
@@ -82,7 +82,7 @@ class Application extends \samsoncms\Application
             // TODO: This has to be changed to Events
             // Refresh session user object
             $auth_user_id = unserialize($_SESSION[m('socialemail')->identifier()]);
-            if ($auth_user_id['UserID'] == $db_user['UserID']) {
+            if ($auth_user_id['UserID'] == $db_user['user_id']) {
                 m('socialemail')->update($db_user);
             }
         }
@@ -100,7 +100,7 @@ class Application extends \samsoncms\Application
     {
         $user = null;
 
-        if (dbQuery('user')->UserID($userID)->first($user)) {
+        if (dbQuery('user')->cond('user_id', $userID)->first($user)) {
             $user->delete();
         }
 
