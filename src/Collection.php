@@ -10,7 +10,8 @@ namespace samsoncms\app\user;
 use samsonframework\core\RenderInterface;
 use samsonframework\orm\QueryInterface;
 use samsonframework\pager\PagerInterface;
-use samsoncms\CollectionField;
+use samsoncms\field\Generic;
+use samsoncms\field\Control;
 
 /**
  * Collection of SamsonCMS users
@@ -28,12 +29,12 @@ class Collection extends \samsoncms\Collection
     {
         // Fill collection fields
         $this->fields = array(
-            new CollectionField('UserID', '#', 0, 'id', false),
-            new CollectionField('FName', t('Имя', true), 0),
-            new CollectionField('SName', t('Фамилия', true), 0),
-            new CollectionField('TName', t('Отчество', true), 0),
-            new CollectionField('Modyfied', t('Последнее изменение', true), 3),
-            new ControlField('UserID', t('Управление', true)),
+            new Generic('UserID', '#', 0, 'id', false),
+            new Generic('FName', t('Имя', true), 0),
+            new Generic('SName', t('Фамилия', true), 0),
+            new Generic('TName', t('Отчество', true), 0),
+            new Generic('Modyfied', t('Последнее изменение', true), 3),
+            new Control(),
         );
 
         // Call parent
