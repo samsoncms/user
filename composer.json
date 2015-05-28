@@ -4,7 +4,8 @@
   "author": "Vitaly Iegorov <egorov@samsonos.com>",
   "minimum-stability": "dev",
   "require": {
-    "samsoncms/template": "*"
+    "samsoncms/template": "*",
+    "samsoncms/application": "*"
   },
   "license": "Open Software License (OSL) v 3.0",
   "homepage": "http://samsonos.com/",

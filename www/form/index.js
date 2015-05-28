@@ -43,17 +43,17 @@ s('#user').pageInit(function(parent) {
     var initList = function(response)
     {
         // Render server response
-        if (response && response.table_html) {
-            container.html(response.table_html);
+        if (response && response.collection_html) {
+            container.html(response.collection_html);
         }
 
         // Bind form list elements
         initForm(s('.template-list-btn-edit', container));
 
-        // Bind delete action
+        /*// Bind delete action
         s('.delete', container).ajaxClick(initList, function(clicked) {
             return confirm(clicked.a('title'));
-        });
+        });*/
     };
 
     // Bind form from sub-menu button
