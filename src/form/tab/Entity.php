@@ -1,0 +1,32 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: onysko
+ * Date: 27.05.2015
+ * Time: 13:07
+ */
+
+namespace samsoncms\app\user\form\tab;
+
+
+use samsoncms\form\field\Generic;
+use samsonframework\core\RenderInterface;
+use samsonframework\orm\QueryInterface;
+use samsonframework\orm\Record;
+
+class Entity extends \samsoncms\form\tab\Entity
+{
+    /** @inheritdoc */
+    public function __construct(RenderInterface $renderer, QueryInterface $query, Record $entity)
+    {
+        $this->fields = array(
+            new Generic('f_name', t('Имя', true), 0),
+            new Generic('s_name', t('Фамилия', true), 0),
+            new Generic('t_name', t('Отчество', true), 0),
+            new Generic('email', t('Email', true), 0),
+        );
+
+        // Call parent constructor to define all class fields
+        parent::__construct($renderer, $query, $entity);
+    }
+}
