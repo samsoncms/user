@@ -1,5 +1,6 @@
 <?php
 namespace samsoncms\app\user;
+use samson\activerecord\user;
 
 /**
  * Class Application
@@ -21,6 +22,20 @@ class Application extends \samsoncms\Application
 
     /** @var string Module identifier */
     protected $entity = 'user';
+
+    protected $formClassName = '\samsoncms\app\user\form\Form';
+
+    public function init(array $params = array())
+    {
+        \samsonphp\event\Event::subscribe('samson.cms.input.change', array($this, 'inputUpdateHandler'));
+    }
+
+    public function inputUpdateHandler(& $object, $param, $prev, $response = null)
+    {
+        if ($object instanceof user) {
+            $object->md5_email = $param == 'email' ? md5($object->email) : $object->md5_email;
+        }
+    }
 
     /**
      * Render users form
