@@ -21,7 +21,7 @@ class Application extends \samsoncms\Application
     protected $id = 'user';
 
     /** @var string Module identifier */
-    protected $entity = 'user';
+    protected $entity = '\samson\activerecord\user';
 
     protected $formClassName = '\samsoncms\app\user\form\Form';
 
