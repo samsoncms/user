@@ -8,6 +8,7 @@
 namespace samsoncms\app\user;
 
 use samsoncms\app\user\field\FullName;
+use samsoncms\app\user\field\Group;
 use samsonframework\core\RenderInterface;
 use samsonframework\orm\QueryInterface;
 use samsonframework\pager\PagerInterface;
@@ -33,6 +34,7 @@ class Collection extends \samsoncms\Collection
             new Generic('user_id', '#', 0, 'id', false),
             new FullName(),
             new Generic('modified', t('Последнее изменение', true), 3),
+            new Group('group_id', t('Группа', true)),
             new Control(),
         );
 
