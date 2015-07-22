@@ -5,9 +5,7 @@
  * Date: 27.05.2015
  * Time: 13:07
  */
-
 namespace samsoncms\app\user\form;
-
 
 use samsoncms\app\user\form\tab\Entity;
 use samsonframework\core\RenderInterface;

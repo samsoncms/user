@@ -1,5 +1,4 @@
 <?php
-
 namespace samsoncms\app\user\field;
 
 use samsonframework\core\RenderInterface;
@@ -10,7 +9,7 @@ use samsoncms\form\field\Generic;
  * Overridden group field
  * @package samsoncms\app\user
  */
-class Group extends Generic
+class FormGroup extends Generic
 {
     /** @inheritdoc */
     public function render(RenderInterface $renderer, QueryInterface $query, $object)

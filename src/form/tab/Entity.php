@@ -7,7 +7,7 @@
  */
 namespace samsoncms\app\user\form\tab;
 
-use samsoncms\app\user\field\Group;
+use samsoncms\app\user\field\FormGroup;
 use samsoncms\form\field\Generic;
 use samsonframework\core\RenderInterface;
 use samsonframework\orm\QueryInterface;
@@ -26,7 +26,7 @@ class Entity extends \samsoncms\form\tab\Entity
             new Generic('s_name', t('Фамилия', true), 0),
             new Generic('t_name', t('Отчество', true), 0),
             new Generic('email', t('Email', true), 0),
-            new Group('group_id', t('Группа', true))
+            new FormGroup('group_id', t('Группа', true))
         );
 
         // Call parent constructor to define all class fields
