@@ -5,9 +5,7 @@
  * Date: 27.05.2015
  * Time: 13:07
  */
-
 namespace samsoncms\app\user\form\tab;
-
 
 use samsoncms\app\user\field\Group;
 use samsoncms\form\field\Generic;
@@ -17,6 +15,9 @@ use samsonframework\orm\Record;
 
 class Entity extends \samsoncms\form\tab\Entity
 {
+    /** @var string Tab name or identifier */
+    protected $name = 'Главная';
+
     /** @inheritdoc */
     public function __construct(RenderInterface $renderer, QueryInterface $query, Record $entity)
     {

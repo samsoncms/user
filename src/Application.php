@@ -1,5 +1,6 @@
 <?php
 namespace samsoncms\app\user;
+
 use samson\activerecord\user;
 
 /**
@@ -23,14 +24,23 @@ class Application extends \samsoncms\Application
     /** @var string Module identifier */
     protected $entity = '\samson\activerecord\user';
 
+    /** @var string Form class */
     protected $formClassName = '\samsoncms\app\user\form\Form';
 
+    /** Module initialization */
     public function init(array $params = array())
     {
         \samsonphp\event\Event::subscribe('samson.cms.input.change', array($this, 'inputUpdateHandler'));
     }
 
-    public function inputUpdateHandler(& $object, $param, $prev, $response = null)
+    /**
+     * Input field saving handler
+     * @param \samsonframework\orm\Record $object
+     * @param string $param Field
+     * @param string $previousValue Previous object field value
+     * @param string $response Response
+     */
+    public function inputUpdateHandler(& $object, $param, $previousValue, $response = null)
     {
         if ($object instanceof user) {
             $object->md5_email = $param == 'email' ? md5($object->email) : $object->md5_email;
@@ -85,24 +95,5 @@ class Application extends \samsoncms\Application
         }
 
         return array ('status' => 1);
-    }
-
-    /**
-     * Delete user from table
-     * @param $userID
-     *
-     * @return array
-     */
-    public function __async_remove2($identifier)
-    {
-        $user = null;
-
-        if (dbQuery('user')->cond('user_id', $identifier)->first($user)) {
-            $user->delete();
-        }
-
-        return array(
-            'status'=>1
-        );
     }
 }
