@@ -48,7 +48,7 @@ s('#user').pageInit(function(parent) {
         }
 
         // Bind form list elements
-        initForm(s('.template-list-btn-edit', container));
+        //initForm(s('.template-list-btn-edit', container));
 
         /*// Bind delete action
         s('.delete', container).ajaxClick(initList, function(clicked) {
@@ -57,7 +57,7 @@ s('#user').pageInit(function(parent) {
     };
 
     // Bind form from sub-menu button
-    initForm(s('.template-list-btn-form'));
+    //initForm(s('.template-list-btn-form'));
 
     // Init interface
     initList();
