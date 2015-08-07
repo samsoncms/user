@@ -47,22 +47,6 @@ class Application extends \samsoncms\Application
         }
     }
 
-    /**
-     * Render users form
-     * @return array Asynchronous response array
-     */
-    public function __async_edit2($userID = null)
-    {
-        return array(
-            'status'    =>1,
-            'html'  => $this->view('form/form')
-                ->user(dbQuery('user')
-                    ->cond('user_id', $userID)
-                    ->first())
-                ->output()
-        );
-    }
-
     /** Save user data */
     public function __async_save()
     {
