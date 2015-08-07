@@ -13,6 +13,10 @@ use samsonframework\core\RenderInterface;
 use samsonframework\orm\QueryInterface;
 use samsonframework\orm\Record;
 
+/**
+ * User SamsonCMS application form entity tab
+ * @package samsoncms\app\user\form\tab
+ */
 class Entity extends \samsoncms\form\tab\Entity
 {
     /** @var string Tab name or identifier */
@@ -21,6 +25,7 @@ class Entity extends \samsoncms\form\tab\Entity
     /** @inheritdoc */
     public function __construct(RenderInterface $renderer, QueryInterface $query, Record $entity)
     {
+        // Add fields
         $this->fields = array(
             new Generic('f_name', t('Имя', true), 0),
             new Generic('s_name', t('Фамилия', true), 0),
