@@ -31,6 +31,7 @@ class Entity extends \samsoncms\form\tab\Entity
             new Generic('s_name', t('Фамилия', true), 0),
             new Generic('t_name', t('Отчество', true), 0),
             new Generic('email', t('Email', true), 0),
+            new Generic('md5_password', t('Пароль', true), 0),
             new FormGroup('group_id', t('Группа', true))
         );
 
