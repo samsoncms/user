@@ -46,6 +46,9 @@ class Application extends \samsoncms\Application
         // Work only when event fired for User database record
         if ($object instanceof user) {
             $object->md5_email = $param == 'email' ? md5($object->email) : $object->md5_email;
+            if ($param == 'md5_password') {
+                $object->md5_password = md5($object->md5_password);
+            }
 
             // Refresh session user object on any field change
             $auth_user_id = unserialize($_SESSION[m('socialemail')->identifier()]);
