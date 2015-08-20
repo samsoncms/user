@@ -57,4 +57,19 @@ class Application extends \samsoncms\Application
             }
         }
     }
+    
+    /**
+     * User entity delete controller action
+     * @param int $identifier Entity identifier
+     * @return array Asynchronous response array
+     */
+    public function __async_remove2($identifier)
+    {
+        if (!dbQuery('material')->cond('UserID', $identifier)->cond('Active', 1)->first()) {
+            return parent::__async_remove2($identifier);
+        }
+        else {
+            return array('status' => 1, 'error_message' => t('Пока у этого пользователя есть материалы, его удаление невозможно.', true));
+        }
+    }
 }
