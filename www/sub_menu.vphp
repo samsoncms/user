@@ -2,7 +2,7 @@
 	<a href="<?php module_url()?>">
     <?php t('Список')?>
 	</a>
-</li><li class=" <?php print(url()->method == 'edit2' ? 'active' : '')?>">
+</li><li class=" <?php print(url()->method == 'form' ? 'active' : '')?>">
 	<a class="template-list-btn-form" href="<?php module_url('new')?>">
 		<?php t('Новый')?>
 	</a>
