@@ -10,7 +10,7 @@ use samson\activerecord\user;
 class Application extends \samsoncms\Application
 {
     /** @var string Application name */
-    public $name = 'Пользователи';
+    public $name = 'Пользователь';
 
     /** Application description */
     public $description = 'Пользователи системы';
