@@ -1,9 +1,13 @@
-<li class="<?php print(url()->method == '' ? 'active' : '')?>" >
+<li class="<?php print(url()->method == '' ? 'active' : '')?>">
 	<a href="<?php module_url()?>">
-    <?php t('Список')?>
+		<i style="padding-right: 13px;" class="icon2 icon2-list"></i><?php v('appName') ?> <?php t('список')?>
 	</a>
-</li><li class=" <?php print(url()->method == 'form' ? 'active' : '')?>">
-	<a class="template-list-btn-form" href="<?php module_url('new')?>">
-		<?php t('Новый')?>
+</li><li class="<?php print(url()->method == 'form' ? 'active' : '')?>">
+	<a href="<?php module_url('new');?>">
+		<?php if (url()->method == 'form' && sizeof(url()->parameters)) { ?>
+			<i style="padding-right: 13px;" class="icon2 icon2-edit"></i><?php v('appName') ?> №<?php echo url()->parameters[0] ?>
+		<?php } else { ?>
+			<i style="padding-right: 13px;" class="icon2 icon2-plus"></i><?php t('Новый')?>  <?php echo strtolower($appName); ?>
+		<?php } ?>
 	</a>
 </li>
