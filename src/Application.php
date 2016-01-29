@@ -44,7 +44,7 @@ class Application extends \samsoncms\Application
     public function inputUpdateHandler(& $object, $param, $previousValue, $response = null)
     {
         // Work only when event fired for User database record
-        if (isset($object->md5_email)) {
+        if ($object instanceof \samson\activerecord\user && isset($object->md5_email)) {
             $object->md5_email = $param == 'email' ? md5($object->email) : $object->md5_email;
             if ($param == 'md5_password') {
                 $object->md5_password = md5($object->md5_password);
