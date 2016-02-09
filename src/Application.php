@@ -35,6 +35,23 @@ class Application extends \samsoncms\Application
     }
 
     /**
+     * New entity creation generic controller action
+     * @param int $parentID Parent identifier
+     */
+    public function __new($parentID = null)
+    {
+        /** @var user $entity */
+        $entity = new $this->entity();
+
+        // Persist
+        $entity->group_id = 1;
+        $entity->save();
+
+        // Go to correct form URL
+        url()->redirect($this->system->module('cms')->baseUrl.'/'.$this->id . '/form/' . $entity->id);
+    }
+
+    /**
      * Input field saving handler
      * @param \samsonframework\orm\Record $object
      * @param string $param Field
@@ -51,10 +68,10 @@ class Application extends \samsoncms\Application
             }
 
             // Refresh session user object on any field change
-            $auth_user_id = unserialize($_SESSION[m('socialemail')->identifier()]);
+            /*$auth_user_id = unserialize($_SESSION[m('socialemail')->identifier()]);
             if ($auth_user_id['user_id'] == $object['user_id']) {
                 m('socialemail')->update($object);
-            }
+            }*/
         }
     }
     
