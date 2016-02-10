@@ -45,6 +45,8 @@ class Application extends \samsoncms\Application
 
         // Persist
         $entity->group_id = 1;
+        $entity->active = 1;
+        $entity->confirmed = 1;
         $entity->save();
 
         // Go to correct form URL
