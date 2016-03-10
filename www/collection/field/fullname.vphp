@@ -1,4 +1,5 @@
 <div class="table2-col <?php iv('class') ?>">
+    <div class="label"><span><?php iv('title') ?></span></div>
     <span>
         <?php iv('item_s_name')?>
         <?php iv('item_f_name')?>
