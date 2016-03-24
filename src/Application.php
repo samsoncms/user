@@ -63,11 +63,13 @@ class Application extends \samsoncms\Application
     public function inputUpdateHandler(& $object, $param, $previousValue, $response = null)
     {
         // Work only when event fired for User database record
-        if ($object instanceof \samson\activerecord\user && isset($object->md5_email)) {
-            $object->md5_email = $param == 'email' ? md5($object->email) : $object->md5_email;
-            if ($param == 'md5_password') {
-                $object->md5_password = md5($object->md5_password);
-            }
+        if ($object instanceof \samson\activerecord\user) {
+            $social = $this->system->module('socialemail');
+            $object->md5_email  = $param == 'email' ? md5($object->email) : $object->md5_email;
+            $object->hash_email = $param == 'email' ? $social->hash($object->email) : $object->hash_email;
+
+            $object->md5_password  = $param == 'hash_password' ? md5($object->hash_password) : $object->md5_password;
+            $object->hash_password = $param == 'hash_password' ? $social->hash($object->hash_password) : $object->hash_password;
 
             // Refresh session user object on any field change
             /*$auth_user_id = unserialize($_SESSION[m('socialemail')->identifier()]);
