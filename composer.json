@@ -5,7 +5,8 @@
   "minimum-stability": "dev",
   "require": {
     "samsoncms/template": "*",
-    "samsoncms/application": "*"
+    "samsoncms/application": "*",
+    "samsonos/cms_input_password": "*"
   },
   "license": "Open Software License (OSL) v 3.0",
   "homepage": "http://samsonos.com/",
