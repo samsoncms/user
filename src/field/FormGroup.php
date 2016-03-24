@@ -22,7 +22,8 @@ class FormGroup extends Generic
 
         // Set view
         return $renderer->view($this->innerView)
-            ->set('class', $this->css)
+            ->set($this->css, 'class')
+            ->set($this->title, 'title')
             ->set($object, 'item')
             ->set(
                 m('samsoncms_input_application')->createFieldByType(
