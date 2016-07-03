@@ -31,6 +31,14 @@ class Dictionary implements IDictionary
                 'Фамилия' => 'Прізвище',
                 'Отчество' => 'По батькові'
             ),
+              "de" => array(
+                "Пользователи системы" => 'Benutzer',
+                "Пользователи" => 'Benutzer',
+                "Пользователь" => 'Benutzer',
+                'Имя' => 'Name',
+                'Фамилия' => 'Nachname',
+                'Отчество' => 'Patronymikon'
+            ),
         );
     }
 }
