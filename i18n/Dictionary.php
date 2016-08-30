@@ -1,5 +1,5 @@
 <?php
-namespace samsoncms\app\user;
+namespace samsoncms\app\user\i18n;
 
 use samsonphp\i18n\IDictionary;
 

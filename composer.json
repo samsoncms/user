@@ -11,9 +11,9 @@
   "license": "Open Software License (OSL) v 3.0",
   "homepage": "http://samsonos.com/",
   "autoload": {
-    "classmap": ["src/"],
     "psr-4": {
-      "samsoncms\\app\\user\\": "src/"
+      "samsoncms\\app\\user\\": "src/",
+      "samsoncms\\app\\user\\i18n\\": "i18n/"
     }
   }
 }
